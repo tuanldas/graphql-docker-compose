@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  graphql-engine:
+    networks:
+      - publish
+
+networks:
+  - publish:
+      external: true
+      name: ${CLOUD_NETWORK}
