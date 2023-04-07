@@ -7,6 +7,9 @@ services:
       - db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgrespassword
+    networks:
+      - default
+
   graphql-engine:
     image: hasura/graphql-engine:v2.22.0
     depends_on:
@@ -26,6 +29,9 @@ services:
       # HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: /srv/console-assets
       ## uncomment next line to set an admin secret
       # HASURA_GRAPHQL_ADMIN_SECRET: myadminsecretkey
+    networks:
+      - default
+
 volumes:
   db_data:
     name: ${VOLUME_POSTGRES_DATA}
